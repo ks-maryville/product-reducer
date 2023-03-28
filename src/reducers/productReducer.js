@@ -11,7 +11,7 @@ export default function productReducer (productState, action) {
             // return new array
             return filteredArr
         case 'EDIT_PRODUCT':
-            // modify the one object matching the id with the new object action.data            
+            // modify the one object matching the id with the new object action.data          
             let productCopy = productState.map( product => product.id === action.data.id ? action.data : product)
             return productCopy
         default:
