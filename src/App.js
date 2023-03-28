@@ -3,10 +3,12 @@ import logo from './logo.svg';
 import './App.css';
 import productReducer from './reducers/productReducer';
 import ProductCard from './components/ProductCard';
+import { v4 as uuidv4 } from 'uuid';
 
 function App() {
   const intialState = [
     {
+      key: uuidv4(),
       id: 1,
       title: "Hogwart's Legacy",
       publisher: "Warner Bros.",
@@ -14,6 +16,7 @@ function App() {
       price: 59.99
     },
     {
+      key: uuidv4(),
       id: 2,
       title: "Destiny 2",
       publisher: "Bungie",
@@ -21,6 +24,7 @@ function App() {
       price: 29.99
     },
     {
+      key: uuidv4(),
       id: 3,
       title: "The Last of Us",
       publisher: "Sony",
@@ -28,6 +32,7 @@ function App() {
       price: 69.99
     },
     {
+      key: uuidv4(),
       id: 4,
       title: "Total War: Warhammer III",
       publisher: "Sega",
@@ -35,6 +40,7 @@ function App() {
       price: 49.99
     },
     {
+      key: uuidv4(),
       id: 5,
       title: "Dune",
       publisher: "Warner Bros.",
@@ -53,6 +59,7 @@ const [productState, dispatch] = useReducer(productReducer, intialState)
         productState.map((product) => {
           return (
             <ProductCard
+              key={product.key}
               id={product.id}
               title={product.title}
               publisher={product.publisher}
@@ -62,9 +69,16 @@ const [productState, dispatch] = useReducer(productReducer, intialState)
               deleteProduct = {
                 (id) => dispatch({
                   type: 'DELETE_PRODUCT',
-                  id: id
+                  product_id: id
                 })
               }
+              editProduct = {
+                (editProductObj) => dispatch({
+                  type: 'EDIT_PRODUCT',
+                  data: editProductObj
+                })
+              }
+
             />
           )
         })
