@@ -57,6 +57,9 @@ export default function productReducer (productState, action) {
                 newCard,
                 ...productState
             ]
+        case "ADD_PAYLOAD":
+            console.log(action.payload)
+            return productState
         default:
             return productState
     }

@@ -4,6 +4,7 @@ import './App.css';
 import productReducer from './reducers/productReducer';
 import ProductCard from './components/ProductCard';
 import { v4 as uuidv4 } from 'uuid';
+import payload from './payload.json'
 
 function App() {
   const initialState = [
@@ -50,18 +51,28 @@ const [productState, dispatch] = useReducer(productReducer, initialState)
   return (
     <div className="App">
       <h1>Video Game Products</h1>
+
       <button 
         onClick={
           () => dispatch({
             type: 'ADD_BLANK'
           })}>Add Blank Card
       </button>
+
       <button
       onClick={
         () => dispatch({
           type: 'ADD_API'
         })
       }>ADD API</button>
+
+      <button
+      onClick={
+        () => dispatch({
+          type: "ADD_PAYLOAD",
+          payload: payload
+        })
+      }>Payload</button>
       {
         productState.map((product) => {
           return (
