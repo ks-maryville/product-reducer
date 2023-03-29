@@ -1,3 +1,5 @@
+import { v4 as uuidv4 } from 'uuid';
+
 export default function productReducer (productState, action) {
     switch (action.type) {
         case 'DELETE_PRODUCT':
@@ -14,6 +16,38 @@ export default function productReducer (productState, action) {
             // modify the one object matching the id with the new object action.data          
             let productCopy = productState.map( product => product.id === action.data.id ? action.data : product)
             return productCopy
+        case "ADD_BLANK":
+            //create new blank card
+            let blankCard = {
+                id: uuidv4(),
+                title: "",
+                publisher: "",
+                genre: "",
+                price: 0.00
+            }
+            // let newState = [
+            //     blankCard,
+            //     ...productState
+            // ]
+            // console.log(newState);
+           
+            return [
+                blankCard,
+                ...productState
+            ]
+        case "ADD_API":
+            let payload =     {
+                id: uuidv4(),
+                title: 'Doom',
+                publisher: 'Bethesda',
+                genre: 'FPS',
+                price: 40,
+              }
+            let newCard
+            return [
+                newCard,
+                ...productState
+            ]
         default:
             return productState
     }

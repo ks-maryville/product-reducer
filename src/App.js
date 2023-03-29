@@ -50,6 +50,12 @@ const [productState, dispatch] = useReducer(productReducer, initialState)
   return (
     <div className="App">
       <h1>Video Game Products</h1>
+      <button 
+        onClick={
+          () => dispatch({
+            type: 'ADD_BLANK'
+          })}>Add Blank Card
+      </button>
       {
         productState.map((product) => {
           return (

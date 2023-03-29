@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import './ProductCard.css'
 
 export default function ProductCard(props) {
