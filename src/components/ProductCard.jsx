@@ -45,6 +45,11 @@ const editProductFunc = () => {
     setEditBtn(false)
 }
 const onChangeHandler = (e) => {
+  (e.target.name === 'price') ?
+  setEditProductState({
+    ...editProductState,
+    [e.target.name]: parseFloat(parseFloat(e.target.value).toFixed(2))})
+  :
   setEditProductState({
     ...editProductState,
     [e.target.name]: e.target.value})
@@ -82,6 +87,8 @@ const onChangeHandler = (e) => {
                 <input
                   type='number'
                   name='price'
+                  step='.01'
+                  min='0'
                   value={editProductState.price}
                   onChange={onChangeHandler}
                 /><br/>
