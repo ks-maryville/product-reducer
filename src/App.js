@@ -56,6 +56,12 @@ const [productState, dispatch] = useReducer(productReducer, initialState)
             type: 'ADD_BLANK'
           })}>Add Blank Card
       </button>
+      <button
+      onClick={
+        () => dispatch({
+          type: 'ADD_API'
+        })
+      }>ADD API</button>
       {
         productState.map((product) => {
           return (

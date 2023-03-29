@@ -36,14 +36,23 @@ export default function productReducer (productState, action) {
                 ...productState
             ]
         case "ADD_API":
-            let payload =     {
-                id: uuidv4(),
-                title: 'Doom',
-                publisher: 'Bethesda',
+            let payload = {
+                name: 'Doom',
+                gamespublisher: 'Bethesda',
+                studio: 'id Software',
+                ratings: 5,
                 genre: 'FPS',
                 price: 40,
               }
-            let newCard
+            let newCard = 
+            {
+                id: uuidv4(),
+                title: payload.name,
+                publisher: payload.gamespublisher,
+                studio: payload.studio,
+                genre: payload.genre,
+                price: payload.price
+            }
             return [
                 newCard,
                 ...productState
