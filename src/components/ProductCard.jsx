@@ -42,25 +42,63 @@ const editProductFunc = () => {
 
   // works only if all values are in the state (editProductState)
     props.editProduct(editProductState)
+    setEditBtn(false)
+}
+const onChangeHandler = (e) => {
+  setEditProductState({
+    ...editProductState,
+    [e.target.name]: e.target.value})
 }
 
 
   return (
     <div className='product-card'>
-       <h2><u>{props.title}</u></h2>
-       <p>Publisher: {props.publisher}</p>
-       <p>Genre: {props.genre}</p>
-       <p>Price: ${props.price}</p> 
-       {/* onclick should trigger props.deleteProduct(id) */}
+      <h2><u>{props.title}</u></h2>
         {
           editBtn ? (
-            <p> True: Start editing</p>
-          ) : (
-            <p>False</p>
-          )
-        }
+              <div>
+                <label htmlFor='title'>Title: </label>
+                <input 
+                  type='text'
+                  name='title'
+                  value={editProductState.title}
+                  onChange={onChangeHandler}
+                /><br/>
+                <label htmlFor='publisher'>Publisher: </label>
+                <input 
+                  type='text'
+                  name='publisher'
+                  value={editProductState.publisher}
+                  onChange={onChangeHandler}
+                /><br/>
+                <label htmlFor='genre'>Genre: </label>
+                <input
+                  type='text'
+                  name='genre'
+                  value={editProductState.genre}
+                  onChange={onChangeHandler}
+                /><br/>
+                <label htmlFor='price'>Price: </label>
+                <input
+                  type='number'
+                  name='price'
+                  value={editProductState.price}
+                  onChange={onChangeHandler}
+                /><br/>
+                <button onClick={editProductFunc}>Save Changes</button>
 
-       <button onClick={()=> setEditBtn(!editBtn)}>Edit</button>
+              </div>
+            ) : (
+              <>
+                <p>Publisher: {props.publisher}</p>
+                <p>Genre: {props.genre}</p>
+                <p>Price: ${props.price}</p> 
+              </>
+              )
+            }
+
+       <button onClick={()=> setEditBtn(!editBtn)}>Toggle Edit</button>
+
        <button onClick={() => props.deleteProduct(props.id)} >Delete!</button>
     </div>
   )

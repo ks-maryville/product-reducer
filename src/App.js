@@ -6,7 +6,7 @@ import ProductCard from './components/ProductCard';
 import { v4 as uuidv4 } from 'uuid';
 
 function App() {
-  const intialState = [
+  const initialState = [
     {
       id: uuidv4(),
       title: "Hogwart's Legacy",
@@ -44,7 +44,7 @@ function App() {
     }
 ]
 
-const [productState, dispatch] = useReducer(productReducer, intialState)
+const [productState, dispatch] = useReducer(productReducer, initialState)
 
 
   return (
