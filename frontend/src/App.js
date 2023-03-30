@@ -4,7 +4,7 @@ import './App.css';
 import productReducer from './reducers/productReducer';
 import ProductCard from './components/ProductCard';
 import { v4 as uuidv4 } from 'uuid';
-import payload from './payload.json'
+// import payload from './payload.json'
 
 function App() {
   const initialState = [
@@ -47,6 +47,14 @@ function App() {
 
 const [productState, dispatch] = useReducer(productReducer, initialState)
 
+const getData = async () =>{
+  const response = await fetch('http://localhost:3001/api/products')
+  dispatch({
+    type: "ADD_PAYLOAD",
+    payload: await response.json()
+  })
+}
+
 
   return (
     <div className="App">
@@ -66,13 +74,15 @@ const [productState, dispatch] = useReducer(productReducer, initialState)
         })
       }>ADD API</button>
 
-      <button
+      {/* <button
       onClick={
         () => dispatch({
           type: "ADD_PAYLOAD",
           payload: payload
         })
-      }>Payload</button>
+      }>Payload</button> */}
+      <button
+      onClick={() => getData()}>Payload</button>
       {
         productState.map((product) => {
           return (
