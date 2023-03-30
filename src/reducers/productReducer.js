@@ -59,7 +59,17 @@ export default function productReducer (productState, action) {
             ]
         case "ADD_PAYLOAD":
             console.log(action.payload)
-            return productState
+            let payloadArr = action.payload.map(e => {
+                return {
+                    id: uuidv4(),
+                    title: e.gameTitle,
+                    publisher: e.publisherName,
+                    genre: e.genre,
+                    price: e.MSRP
+                }
+            })
+
+            return [...payloadArr, ...productState]
         default:
             return productState
     }
