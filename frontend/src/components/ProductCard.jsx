@@ -26,7 +26,7 @@ export default function ProductCard(props) {
 const editProductFunc = () => {
   // full manual
   // props.editProduct({
-  //   key: editProductState.key,
+  //   // key: editProductState.key,
   //   id: editProductState.id,
   //   title: editProductState.title,
   //   publisher: editProductState.publisher,
@@ -49,7 +49,7 @@ const onChangeHandler = (e) => {
   (e.target.name === 'price') ?
   setEditProductState({
     ...editProductState,
-    [e.target.name]: parseFloat(parseFloat(e.target.value).toFixed(2))})
+    [e.target.name.toLowerCase()]: parseFloat(parseFloat(e.target.value).toFixed(2))})
   :
   setEditProductState({
     ...editProductState,

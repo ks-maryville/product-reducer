@@ -1,4 +1,4 @@
-import { v4 as uuidv4 } from 'uuid';
+import {v4 as uuidv4} from 'uuid';
 
 export default function productReducer (productState, action) {
     switch (action.type) {
@@ -8,14 +8,13 @@ export default function productReducer (productState, action) {
             // let filteredArr = productState.filter(product => 
             //     (product.id !== action.product_id))
             // or
-            let filteredArr = productState.filter(product => 
-                (product.id === action.product_id) ? false : true)
             // return new array
-            return filteredArr
+            return productState.filter(product =>
+                (product.id !== action.product_id))
         case 'EDIT_PRODUCT':
             // modify the one object matching the id with the new object action.data          
-            let productCopy = productState.map( product => product.id === action.data.id ? action.data : product)
-            return productCopy
+
+            return productState.map(product => product.id === action.data.id ? action.data : product)
         case "ADD_BLANK":
             //create new blank card
             let blankCard = {

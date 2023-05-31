@@ -5,35 +5,35 @@ router.get('/', function(request, response, next) {
     response.send([
         {
           "id": 782330,
-          "gameTitle": "Doom: Eternal",
-          "publisherName": "Bethesda",
-          "gameStudio": "id Software",
+          "title": "Doom: Eternal",
+          "publisher": "Bethesda",
+          "studio": "id Software",
           "genre": "FPS",
-          "MSRP": 39.99
+          "price": 39.99
         },
         {
           "id": 546560,
-          "gameTitle": "Half-Life: Alyx",
-          "publisherName": "Valve",
-          "gameStudio": "Valve",
+          "title": "Half-Life: Alyx",
+          "publisher": "Valve",
+          "studio": "Valve",
           "genre": "VR",
-          "MSRP": 59.99
+          "price": 59.99
         },
         {
           "id": 1145360,
-          "gameTitle": "Hades",
-          "publisherName": "Supergiant",
-          "gameStudio": "Supergiant",
+          "title": "Hades",
+          "publisher": "Supergiant",
+          "studio": "Supergiant",
           "genre": "Rogue-like",
-          "MSRP": 24.99
+          "price": 24.99
         },
         {
           "id": 2050650,
-          "gameTitle": "Resident Evil 4",
-          "publisherName": "Capcom",
-          "gameStudio": "Capcom",
+          "title": "Resident Evil 4",
+          "publisher": "Capcom",
+          "studio": "Capcom",
           "genre": "Horror",
-          "MSRP": 59.99
+          "price": 59.99
         },
         {
           "id": 2208920,
